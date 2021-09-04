@@ -1,10 +1,18 @@
 const inquirer = require('inquirer');
+const db = require('./db/connection');
 
 const promptUser = () => {
-  return inquirer.prompt(menu);
+  return inquirer.prompt(startMenu);
 };
 
-const menu = [
+// Initialize menu after DB connection
+db.connect(err => {
+  if (err) throw err;
+  console.log('Database connected.');
+  startMenu();
+});
+
+const startMenu = [
   {
     type: 'list',
     name: 'menuSelection',
