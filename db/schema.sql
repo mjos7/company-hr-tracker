@@ -2,6 +2,15 @@ DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS departments;
 
+CREATE TABLE employees (
+   id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
+    manager_name VARCHAR(30) DEFAULT 'NONE',
+    PRIMARY KEY (id),
+    FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE
+);
 
 CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT,
@@ -18,12 +27,4 @@ CREATE TABLE departments (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE employees (
-   id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    role_id INT NOT NULL,
-    manager_name VARCHAR(30) DEFAULT 'NONE',
-    PRIMARY KEY (id),
-    FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE
-);
+
