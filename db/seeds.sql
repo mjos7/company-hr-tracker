@@ -76,7 +76,7 @@ VALUES ("Kyrie", "Irving", 10,4);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES ("Naomi", "Osaka", 11, 5);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Serena", "Williams", 12, null);
+VALUES ("Justin", "Bieber", 12, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES ("Oprah", "Winfrey", 13, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
