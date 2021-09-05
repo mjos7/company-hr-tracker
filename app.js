@@ -63,9 +63,9 @@ function startApp() {
         //   removeEmployee();
         //   break;
 
-        // case 'View Departments':
-        //   viewDepartments();
-        //   break;
+        case 'View Departments':
+          viewDepartments();
+          break;
 
         case 'Add Department':
           addDepartment();
@@ -75,9 +75,9 @@ function startApp() {
         //   removeDepartment();
         //   break;
 
-        // case 'View Roles':
-        //   viewRoles();
-        //   break;
+        case 'View Roles':
+          viewRoles();
+          break;
 
         // case 'Add Roles':
         //   addRoles();
@@ -87,9 +87,9 @@ function startApp() {
         //   deleteRole();
         //   break;
 
-        case 'View Utilized Budget by Department':
-          viewUtilizedBudget();
-          break;
+        // case 'View Utilized Budget by Department':
+        //   viewUtilizedBudget();
+        //   break;
 
         case 'Exit':
           db.end();
@@ -161,6 +161,26 @@ function addEmployee() {
         startApp();
       });
     });
+}
+
+// View Department
+function viewDepartments() {
+  const query = 'SELECT * FROM departments';
+  db.query(query, function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    startApp();
+  });
+}
+
+// View Role
+function viewRoles() {
+  const query = 'SELECT * FROM roles';
+  db.query(query, function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    startApp();
+  });
 }
 
 // Update Employee Information
