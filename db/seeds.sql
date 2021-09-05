@@ -17,10 +17,11 @@ VALUES ("Finance");
 INSERT INTO departments (name)
 VALUES ("Legal");
 
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Account Executive", 80000, 1);
+
 INSERT INTO roles (title, salary, department_id)
 VALUES ("VP Sales", 150000, 1);
+INSERT INTO roles (title, salary, department_id)
+VALUES ("Account Executive", 80000, 1);
 INSERT INTO roles (title, salary, department_id)
 VALUES ("Marketing Manager", 80000, 2);
 INSERT INTO roles (title, salary, department_id)
@@ -53,36 +54,36 @@ INSERT INTO roles (title, salary, department_id)
 VALUES ("Council", 200000, 8);
 
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Stephen", "Curry", 1, 1);
+VALUES ("Conor", "McGreggor", 1, 1);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Christiano", "Ronaldo", 1, null);
+VALUES ("Christiano", "Ronaldo", 2, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Lebron", "James", 2, null);
+VALUES ("Lebron", "James", 3, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Kevin", "Durant", 2, null);
+VALUES ("Kevin", "Durant", 4, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Klay", "Thompson", 2, 2);
+VALUES ("Klay", "Thompson", 5, 2);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Conor", "McGreggor", 3, 3);
+VALUES ("Stephen", "Curry", 6, 3);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Lewis", "Hamilton", 3, null);
+VALUES ("Lewis", "Hamilton", 7, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Serena", "Williams", 4, null);
+VALUES ("Serena", "Williams", 8, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("James", "Harden", 4, null);
+VALUES ("James", "Harden", 9, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Kyrie", "Irving", 4,4);
+VALUES ("Kyrie", "Irving", 10,4);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Naomi", "Osaka", 5, 5);
+VALUES ("Naomi", "Osaka", 11, 5);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Serena", "Williams", 5, null);
+VALUES ("Serena", "Williams", 12, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Oprah", "Winfrey", 6, null);
+VALUES ("Oprah", "Winfrey", 13, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Jennifer", "Aniston", 7, 6);
+VALUES ("Jennifer", "Aniston", 14, 6);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Selena", "Gomez", 7, null);
+VALUES ("Selena", "Gomez", 15, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("Denzel", "Washington", 7, null);
+VALUES ("Denzel", "Washington", 16, null);
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES ("George", "Clooney", 8, null);
+VALUES ("George", "Clooney", 17, null);
