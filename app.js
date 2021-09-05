@@ -11,19 +11,14 @@ function startApp() {
         name: 'menuSelection',
         message: 'Please select a choice from the menu below.',
         choices: [
-          'View Employees', //REQUIRED
-          'View Employees by Department', //BONUS
-          'View Employees by Manager', //BONUS
-          'Add Employee', //REQUIRED
-          'Update Employee Role/Manager', //REQUIRED & //BONUS
-          'Remove Employee', //BONUS
-          'View Departments', //REQUIRED
-          'Add Department', //REQUIRED
-          'Remove Department', //BONUS
-          'View Roles', //REQUIRED
-          'Add Role', //REQUIRED
-          'Delete Role', //BONUS
-          'View Utilized Budget by Department', //BONUS
+          'View Employees',
+          'Add Employee',
+          'Update Employee Role/Manager',
+          'Remove Employee',
+          'View Departments',
+          'Add Department',
+          'View Roles',
+          'Add Role',
           'Exit',
         ],
         validate: menuSelection => {
@@ -111,19 +106,18 @@ function viewEmployees() {
   );
 }
 
-// NEED HELP
-function viewEmployeesByDept() {
-  db.query(
-    'SELECT employees.first_name, employees.last_name, roles.title AS "role", managers.first_name AS "manager" FROM employees LEFT JOIN roles ON employees.role_id = roles.id LEFT JOIN employees managers ON employees.manager_id = managers.id GROUP BY department.name',
-    function (err, res) {
-      if (err) throw err;
-      // Log all results of the SELECT statement
-      console.table(res);
+// // NEED HELP
+// function viewEmployeesByDept() {
+//   db.query(
+//     'SELECT employees.first_name, employees.last_name, roles.title AS "role", managers.first_name AS "manager" FROM employees LEFT JOIN roles ON employees.role_id = roles.id LEFT JOIN employees managers ON employees.manager_id = managers.id GROUP BY department.name',
+//     function (err, res) {
+//       if (err) throw err;
+//       console.table(res);
 
-      startApp();
-    }
-  );
-}
+//       startApp();
+//     }
+//   );
+// }
 
 function addEmployee() {
   inquirer
