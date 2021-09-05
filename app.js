@@ -59,9 +59,9 @@ function startApp() {
           updateRole();
           break;
 
-        // case 'Remove Employee':
-        //   removeEmployee();
-        //   break;
+        case 'Remove Employee':
+          removeEmployee();
+          break;
 
         case 'View Departments':
           viewDepartments();
@@ -79,9 +79,9 @@ function startApp() {
           viewRoles();
           break;
 
-        // case 'Add Roles':
-        //   addRoles();
-        //   break;
+        case 'Add Role':
+          addRole();
+          break;
 
         // case 'Remove Role':
         //   deleteRole();
@@ -296,7 +296,7 @@ function updateEmployeeRole(employeeId, roleId) {
     ],
     (err, res) => {
       if (err) throw err;
-      console.log(`Successfully changed employee's role`);
+      console.log(`You've successfully updated the employee's role`);
       startApp();
     }
   );
@@ -340,12 +340,13 @@ function updateEmployeeManager(employeeId, managerId) {
     ],
     (err, res) => {
       if (err) throw err;
-      console.log(`Successfully changed employee's manager`);
+      console.log(`You've successfully changed employee's manager`);
       startApp();
     }
   );
 }
 
+// Add departments
 function addDepartment() {
   inquirer
     .prompt({
@@ -358,10 +359,75 @@ function addDepartment() {
       const query = `INSERT INTO departments (name) VALUES("${department}")`;
       db.query(query, function (err, res) {
         if (err) throw err;
-        console.log(`Successfully changed employee's manager`);
+        console.log(`You've successfully added ${department}`);
         startApp();
       });
     });
+}
+
+// Add roles
+function addRole() {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: 'What is the role/job title you want to add?',
+        name: 'title',
+      },
+      {
+        type: 'input',
+        message: 'What is the salary for this position?',
+        name: 'salary',
+      },
+      {
+        type: 'input',
+        message: 'What is the department ID for this position?',
+        name: 'departmentID',
+      },
+    ])
+    .then(function (res) {
+      const title = res.title;
+      const salary = res.salary;
+      const departmentID = res.departmentID;
+      const query = `INSERT INTO roles (title, salary, department_id) VALUE("${title}", "${salary}", "${departmentID}")`;
+      db.query(query, function (err, res) {
+        if (err) throw err;
+        console.log(`You've successfully added ${title}`);
+        startApp();
+      });
+    });
+}
+
+// Removing Employees
+function removeEmployee() {
+  let employeeList = [];
+  db.query(
+    'SELECT employees.first_name, employees.last_name FROM employees',
+    (err, res) => {
+      for (let i = 0; i < res.length; i++) {
+        employeeList.push(res[i].first_name + ' ' + res[i].last_name);
+      }
+      inquirer
+        .prompt([
+          {
+            type: 'list',
+            message: 'Which employee would you like to delete?',
+            name: 'employee',
+            choices: employeeList,
+          },
+        ])
+        .then(function (res) {
+          const query = db.query(
+            `DELETE FROM employees WHERE concat(first_name, ' ' ,last_name) = '${res.employee}'`,
+            function (err, res) {
+              if (err) throw err;
+              console.log(`Employee deleted!`);
+              startApp();
+            }
+          );
+        });
+    }
+  );
 }
 
 function getRolesAsync() {
