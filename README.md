@@ -34,7 +34,8 @@ Visual Studio Code - For the application code
 
 # Working Application
 
-![Company HR Tracker Demo](https://www.loom.com/share/32ee93ce4e2b4c7c923ce8f902473a22)
+- **[GitHub Repo](https://github.com/mjos7/employee-tracker)**
+- **[Recorded Demo](https://www.loom.com/share/32ee93ce4e2b4c7c923ce8f902473a22)**
 
 # License
 
